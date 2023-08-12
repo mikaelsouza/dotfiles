@@ -1,4 +1,5 @@
 # User defined
+.luarc.json
 packer_compiled.lua
 # Byte-compiled / optimized / DLL files
 __pycache__/
