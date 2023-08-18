@@ -17,6 +17,8 @@ in {
    loader.efi.canTouchEfiVariables = true;
   };
 
+  nix.settings.experimental-features = [ "nix-command" ];
+
   networking = {
     hostName = "nixos"; # Define your hostname.
     networkmanager.enable = true;
