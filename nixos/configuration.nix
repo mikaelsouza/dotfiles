@@ -64,7 +64,7 @@ in {
   users.users.mikael = {
     isNormalUser = true;
     description = "Mikael Souza";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
   home-manager.useUserPackages = true;
@@ -89,6 +89,10 @@ in {
       unstable.telegram-desktop
       unstable.spotify
       unstable.obsidian
+      unstable.rnix-lsp
+      unstable.nixpkgs-fmt
+      unstable.prismlauncher
+      unstable.lazydocker
     ];
     home.stateVersion = "23.05";
     home.sessionVariables = {
@@ -115,6 +119,13 @@ in {
   environment.systemPackages = with pkgs; [
     neovim
   ];
-
- system.stateVersion = "23.05";
+  virtualisation = {
+    docker.enable = true;
+    virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
+  };
+  users.extraGroups.vboxusers.members = [ "mikael" ];
+  system.stateVersion = "23.05";
 }
