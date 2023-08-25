@@ -5,7 +5,8 @@ let unstable = import <nixos-unstable> {
     allowUnfree = true;
   };
 };
-in {
+in
+{
   imports =
     [
       /etc/nixos/hardware-configuration.nix
@@ -13,8 +14,8 @@ in {
     ];
 
   boot = {
-   loader.systemd-boot.enable = true;
-   loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
   };
 
   nix.settings.experimental-features = [ "nix-command" ];
@@ -24,7 +25,7 @@ in {
     networkmanager.enable = true;
   };
   time.timeZone = "America/Manaus";
-  
+
   i18n = {
     defaultLocale = "pt_BR.UTF-8";
     extraLocaleSettings = {
@@ -48,7 +49,7 @@ in {
     xkbVariant = "alt-intl";
   };
 
-  console.keyMap = "dvorak";
+  console.keyMap = "us";
   services.printing.enable = true;
 
   sound.enable = true;
@@ -59,7 +60,7 @@ in {
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
- };
+  };
 
   users.users.mikael = {
     isNormalUser = true;
@@ -108,12 +109,12 @@ in {
       bash.enable = true;
       git = {
         enable = true;
-	userName = "Mikael Souza";
-	userEmail = "mikael.souza.cc@gmail.com";
+        userName = "Mikael Souza";
+        userEmail = "mikael.souza.cc@gmail.com";
       };
     };
   };
-  
+
   services.flatpak.enable = true;
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
