@@ -85,7 +85,6 @@ in {
       unstable.nodePackages.lua-fmt
       unstable.ripgrep
       unstable.fd
-      unstable.discord
       unstable.telegram-desktop
       unstable.spotify
       unstable.obsidian
@@ -115,6 +114,7 @@ in {
     };
   };
   
+  services.flatpak.enable = true;
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     neovim
@@ -126,6 +126,8 @@ in {
       enableExtensionPack = true;
     };
   };
+  programs.steam.enable = true;
   users.extraGroups.vboxusers.members = [ "mikael" ];
   system.stateVersion = "23.05";
+  xdg.portal.enable = true;
 }
