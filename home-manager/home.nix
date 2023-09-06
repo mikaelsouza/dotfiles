@@ -40,6 +40,7 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    PATH = "~/bin:$PATH";
   };
 
   home.shellAliases = {
