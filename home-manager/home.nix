@@ -1,11 +1,13 @@
 { config, pkgs, ... }:
-
+let
+  system = builtins.currentSystem;
+  username = if system == "x86_64-darwin" then "mikaelsilva" else "mikael";
+  homeDir = if system == "x86_64-darwin" then "/Users/${username}" else "/home/${username}";
+in
 {
-  home.username = "mikael";
-  home.homeDirectory = "/home/mikael";
-
-  home.stateVersion = "23.05"; # Please read the comment before changing.
-
+  home.username = username;
+  home.homeDirectory = homeDir;
+  home.stateVersion = "23.05";
   home.packages = [
     pkgs.python311
     pkgs.direnv
@@ -45,25 +47,12 @@
   };
 
   programs.home-manager.enable = true;
-  programs.zsh = {
-    enable = true;
-    oh-my-zsh = {
-      enable = true;
-      theme = "robbyrussell";
-      plugins = [ "git" ];
-    };
-  };
+  programs.zsh.enable = true;
   programs.bash.enable = true;
   programs.git = {
     enable = true;
     userName = "Mikael Souza";
     userEmail = "mikael.souza.cc@gmail.com";
-  };
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true;
-    nix-direnv.enable = true;
   };
 }
 
