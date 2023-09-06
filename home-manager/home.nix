@@ -9,6 +9,7 @@ in
   home.homeDirectory = homeDir;
   home.stateVersion = "23.05";
   home.packages = [
+    pkgs.helix
     pkgs.python311
     pkgs.direnv
     pkgs.neovim
@@ -42,7 +43,7 @@ in
   };
 
   home.shellAliases = {
-    hm = "nvim ~/.config/home-manager/home.nix && home-manager switch";
+    hm = "nvim ~/dotfiles/home-manager/home.nix && home-manager -f ~/dotfiles/home-manager/home.nix switch";
   };
 
   programs.home-manager.enable = true;
