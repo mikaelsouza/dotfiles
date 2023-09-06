@@ -32,14 +32,13 @@ in
   home.file = {
     nvim = {
       enable = true;
-      source = "/home/mikael/dotfiles/nvim/init.lua";
+      source = homeDir + "/dotfiles/nvim/init.lua";
       target = ".config/nvim/init.lua";
     };
   };
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    PATH = "/home/mikael/bin:$PATH";
   };
 
   home.shellAliases = {
